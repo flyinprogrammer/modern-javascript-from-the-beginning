@@ -1,88 +1,69 @@
 let header = document.getElementById('header');
-header.innerHTML = "Arrays & Array Methods";
+header.innerHTML = "Object Literals";
 
-// This is how you can create an array
-const numbers = [43, 56, 33, 23, 44, 36, 5];
-console.log(numbers);
-
-const numbers2 = new Array(22, 45, 33, 76, 54);
-
-// also with strings
-const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
-
-const mixed = [22, 'Hello', true, undefined, null, { a: 1, b: 1 }, new Date()];
-
-console.log(mixed);
+const person = {
+  firstName: 'Steve',
+  lastName: 'Smith',
+  age: 36,
+  email: 'steve@aol.com',
+  hobbies: ['music', 'sports'],
+  address: {
+    city: 'Miami',
+    state: 'FL',
+  },
+  getBirthYear: function() {
+    let todaysYear = new Date().getFullYear();
+    return todaysYear - this.age;
+  }
+}
 
 let val;
 
-val = numbers.length;
+val = person.firstName;
 console.log(val);
 
-val = Array.isArray(numbers);
+val = person['lastName'];
 console.log(val);
 
-// returns 23 because arrays are 0 based
-val = numbers[3];
+val = person.age;
 console.log(val);
 
-val = numbers[0];
+val = person.hobbies[1];
 console.log(val);
 
-// Insert into array
-numbers[2] = 100
-val = numbers.indexOf(36)
-console.log(numbers);
+val = person.address.state;
 console.log(val);
 
-// mutating arrays
-numbers.push(250);
-console.log(numbers);
-// Add on to front
-numbers.unshift(120);
-console.log(numbers);
-// Take off from end
-numbers.pop();
-console.log(numbers);
-// Take off from front
-numbers.shift();
-console.log(numbers);
-// Splice values
-numbers.splice(numbers.indexOf(56), 1);
-console.log(numbers);
-// reverse array
-numbers.reverse();
-console.log(numbers);
-
-val = numbers.concat(numbers2);
+val = person.address['city'];
 console.log(val);
 
-val = fruit.sort();
+val = person.getBirthYear();
 console.log(val);
 
-val = numbers.sort();
-console.log(val);
+const people = [
+  { name: 'John', age: 30 },
+  { name: 'Mike', age: 23 },
+  { name: 'Nancy', age: 40 },
+]
 
-val = numbers.sort(function(a, b) {
-  return a - b;
-});
-console.log(val);
-
-val = numbers.sort(function(a, b) {
-  return b - a;
-});
-console.log(val);
-
-
-// Find
-function under50(num) {
-  return num < 50;
+console.log("for/i")
+for (let i = 0; i < people.length; i++) {
+  console.log("\t" + people[i].name)
 }
 
-val = numbers.find(under50);
-console.log(val);
 
-val = numbers.sort(function(a, b) {
-  return a - b;
-}).find(under50);
-console.log(val);
+// extra credit i couldn't help myself
+console.log("for/of")
+for (p of people) {
+  console.log("\t" + p.name);
+}
+
+console.log("for/in");
+for (let x in people) {
+  console.log("\t" + people[x].name);
+}
+
+console.log("forEach");
+people.forEach(function(p) {
+  console.log("\t" + p.name);
+})
