@@ -1,46 +1,63 @@
 let header = document.getElementById('header');
-header.innerHTML = "Switches";
+header.innerHTML = "Function Declarations and Expressions";
 
-const color = 'chicken';
+// function declarations
 
-switch (color) {
-  case 'red':
-    console.log('red is my favorite');
-    break;
-  case 'blue':
-    console.log('blue is really nice');
-    break;
-  default:
-    console.log('new color i do not know');
-    break;
+function greet(firstName, lastName) {
+
+  // ES5 mechanism
+  if (typeof firstName === 'undefined') {
+    firstName = 'defaultFirstName'
+  }
+  if (typeof lastName === 'undefined') {
+    lastName = 'defaultLastName'
+  }
+  // console.log('Hello');
+  return `Hello ${firstName} ${lastName}`;
 }
 
-let day;
-
-switch (new Date().getDay()) {
-  case 0:
-    day = 'Sunday';
-    break;
-  case 1:
-    day = 'Monday';
-    break;
-  case 2:
-    day = 'Tuesday';
-    break;
-  case 3:
-    day = 'Wednesday';
-    break;
-  case 4:
-    day = 'Thursday';
-    break;
-  case 5:
-    day = 'Friday';
-    break;
-  case 6:
-    day = 'Saturday';
-    break;
-  default:
-    day = 'Freeday';
-    break;
+function greetES6(firstName = 'defaultFirstName', lastname = 'defaultLastName') {
+  return `Hello ${firstName} ${lastname}`;
 }
-console.log(`Today is ${day}.`);
+
+console.log(greet('Alan', 'Scherger'));
+console.log(greet());
+console.log(greetES6());
+
+// Function expressions
+const square = function(x = 3) {
+  return x * x;
+}
+
+console.log(square(9));
+
+// immediately invokable function expressions
+// IIFEs
+
+(function() {
+  console.log('IIFE Ran..');
+})();
+
+(function(name = 'Jon Doe') {
+  console.log(`Hello ${name}`);
+})('Brad');
+
+// Property Methods
+
+const todo = {
+  add: function(x) {
+    console.log(`add todo ${x}`);
+  },
+  edit: function(id) {
+    console.log(`edit ${id}`);
+  }
+}
+
+todo.delete = function(id) {
+  console.log(`delete ${id} todo`);
+}
+
+todo.add(33);
+todo.delete(33);
+todo.edit(44);
+
