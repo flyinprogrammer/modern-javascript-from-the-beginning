@@ -1,34 +1,43 @@
-let header = document.getElementById('header');
-header.innerHTML = "Block Scope  with let and const";
 
+console.log(document);
+console.log(document.all);
+console.log(document.all[2]);
+console.log(document.all.length);
+console.log(document.head);
+console.log(document.body);
+console.log(document.doctype);
+console.log(document.domain);
+console.log(document.URL);
+console.log(document.characterSet);
+console.log(document.contentType);
 
-// global scope
+let forms = document.forms;
+console.log(forms);
+console.log(forms.length);
+let form = forms[0];
+console.log(form);
+console.log(form.id);
+console.log(form.method);
+console.log(form.action);
 
-var a = 1;
-let b = 2;
-const c = 3;
+console.log(document.links);
 
-// function test() {
-//   var a = 4
-//   let b = 5
-//   const c = 6
-//   console.log(`Function Scope: ${a} ${b} ${c}`);
-// }
+let link = document.links[0];
+console.log(link.id);
+console.log(link.className);
+console.log(link.classList);
 
-// test();
+let images = document.images;
+console.log(images);
 
-if (true) {
-  // Block Scope
-  var a = 4;
-  let b = 5
-  const c = 6;
-  console.log(`If scope: ${a} ${b} ${c}`)
-}
+let scripts = document.scripts;
+console.log(scripts);
 
-// var gets real spooky
-for (var a; a < 9; a++) {
-  console.log(`Loop a: ${a}`);
-}
+// might error if you aren't running with vite
+console.log(document.scripts[3].getAttribute('src'));
 
-console.log(`Global Scope: ${a} ${b} ${c}`);
+let scriptsArray = Array.from(scripts);
 
+scriptsArray.forEach(function(script) {
+  console.log(script.getAttribute('src'));
+});
