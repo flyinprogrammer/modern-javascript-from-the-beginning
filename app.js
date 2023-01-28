@@ -1,53 +1,34 @@
 let header = document.getElementById('header');
-header.innerHTML = "A look at the window object";
+header.innerHTML = "Block Scope  with let and const";
 
 
-// CONSOLE
-// window.console.log('Foobar');
+// global scope
 
-// ALERT
-// window.alert('Hello World');
+var a = 1;
+let b = 2;
+const c = 3;
 
-// PROMPT
-//const input = prompt();
-//console.log(`${input}`);
-
-// CONFIRM
-// if (confirm("are you sure?")) {
-//   console.log('YES');
-// } else {
-//   console.log('Cancelled');
+// function test() {
+//   var a = 4
+//   let b = 5
+//   const c = 6
+//   console.log(`Function Scope: ${a} ${b} ${c}`);
 // }
 
-let val;
+// test();
 
-console.log(`outerHeight: ${window.outerHeight}`);
-console.log(`outerWidth: ${window.outerWidth}`);
-console.log(`innerHeight: ${window.innerHeight}`);
-console.log(`innerWidth: ${window.innerWidth}`);
+if (true) {
+  // Block Scope
+  var a = 4;
+  let b = 5
+  const c = 6;
+  console.log(`If scope: ${a} ${b} ${c}`)
+}
 
-console.log(`window.scrollY: ${window.scrollY}`);
-console.log(`window.scrollY: ${window.scrollX}`);
+// var gets real spooky
+for (var a; a < 9; a++) {
+  console.log(`Loop a: ${a}`);
+}
 
+console.log(`Global Scope: ${a} ${b} ${c}`);
 
-console.log(`window.location: ${window.location}`);
-console.log(window.location);
-console.log(`window.location.hostname: ${window.location.hostname}`);
-
-// window.location.href = 'https://google.com';
-//window.location.reload();
-console.log(window.history);
-
-console.log(`${window.history.length}`)
-
-// navigator object
-
-let nav = window.navigator;
-console.log(nav);
-console.log(nav.appName);
-console.log(nav.appVersion);
-
-console.log(nav.userAgent);
-console.log(nav.platform);
-console.log(nav.vendor);
-console.log(nav.language);
