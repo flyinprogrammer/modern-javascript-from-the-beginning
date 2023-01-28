@@ -1,88 +1,53 @@
 let header = document.getElementById('header');
-header.innerHTML = "General Loops";
-
-for (let i = 0; i < 10; i++) {
-  console.log(`Counter at ${i}`);
-}
+header.innerHTML = "A look at the window object";
 
 
-for (let i = 0; i < 10; i++) {
-  if (i === 2) {
-    console.log('My favorite number is 2');
-  }
-  console.log(`Counter at ${i}`);
-}
+// CONSOLE
+// window.console.log('Foobar');
 
-// continue to the next iteration
-for (let i = 0; i < 10; i++) {
-  if (i === 2) {
-    console.log('My favorite number is 2');
-    continue;
-  }
-  console.log(`Counter at ${i}`);
-}
+// ALERT
+// window.alert('Hello World');
 
-for (let i = 0; i < 10; i++) {
-  if (i === 2) {
-    console.log('My favorite number is 2');
-  }
-  if (i === 5) {
-    console.log('Time to stop at 5');
-    break;
-  }
-  console.log(`Counter at ${i}`);
-}
+// PROMPT
+//const input = prompt();
+//console.log(`${input}`);
 
+// CONFIRM
+// if (confirm("are you sure?")) {
+//   console.log('YES');
+// } else {
+//   console.log('Cancelled');
+// }
 
-// WHILE
+let val;
 
-let i = 0;
-while (i < 3) {
-  console.log(`while: ${i}`);
-  i++;
-}
+console.log(`outerHeight: ${window.outerHeight}`);
+console.log(`outerWidth: ${window.outerWidth}`);
+console.log(`innerHeight: ${window.innerHeight}`);
+console.log(`innerWidth: ${window.innerWidth}`);
 
-i = 100;
-
-do {
-  console.log(`100 is not < 10 but it still prints: ${i}`);
-  i++;
-}
-while (i < 10);
-
-const cars = ['Ford', 'Chevy', 'Honda', 'Toyota'];
-
-for (let i = 0; i < cars.length; i++) {
-  console.log(cars[i]);
-}
-console.log('look at forEach')
-cars.forEach(function(car, index, array) {
-  console.log(`${car} :: ${index} :: ${array}`);
-});
+console.log(`window.scrollY: ${window.scrollY}`);
+console.log(`window.scrollY: ${window.scrollX}`);
 
 
-// MAP
-const users = [
-  { id: 1, name: 'John' },
-  { id: 2, name: 'Sara' },
-  { id: 3, name: 'Karen' },
-  { id: 4, name: 'Steve' },
-];
+console.log(`window.location: ${window.location}`);
+console.log(window.location);
+console.log(`window.location.hostname: ${window.location.hostname}`);
 
-const ids = users.map(function(user) {
-  return user.id;
-});
+// window.location.href = 'https://google.com';
+//window.location.reload();
+console.log(window.history);
 
-console.log(ids);
+console.log(`${window.history.length}`)
 
-// for/in
-const user = {
-  firstName: 'John',
-  lastName: 'Doe',
-  age: 40,
-}
+// navigator object
 
-for (let x in user) {
-  console.log(`${x} : ${user[x]}`);
-}
+let nav = window.navigator;
+console.log(nav);
+console.log(nav.appName);
+console.log(nav.appVersion);
 
+console.log(nav.userAgent);
+console.log(nav.platform);
+console.log(nav.vendor);
+console.log(nav.language);
